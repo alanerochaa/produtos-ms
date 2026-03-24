@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="page-container">
+
+    <div th:replace="~{fragments :: navbar('produtos')}"></div>
+
+    <section class="card">
+        <div class="section-header">
+            <h1 class="page-title">Produtos cadastrados</h1>
+            <a th:href="@{/produtos/novo}" class="btn btn-primary">Novo produto</a>
+        </div>
+
+        <div th:if="${#lists.isEmpty(produtos)}" class="empty-message">
+            Nenhum produto cadastrado.
+        </div>
+
+        <div th:unless="${#lists.isEmpty(produtos)}" class="table-wrapper">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="produto : ${produtos}">
+                    <td th:text="${produto.id}" class="code-text">id</td>
+                    <td th:text="${produto.nome}">Nome</td>
+                    <td th:text="${produto.categoria}">Categoria</td>
+                    <td th:text="${produto.preco}">0.00</td>
+                    <td>
+                        <div class="actions">
+                            <a th:href="@{/produtos/detalhe/{id}(id=${produto.id})}"
+                               class="btn btn-secondary">
+                                Detalhar
+                            </a>
+
+                            <form class="inline-form"
+                                  th:action="@{/produtos/excluir/{id}(id=${produto.id})}"
+                                  method="post"
+                                  onsubmit="return confirm('Deseja realmente excluir este produto?');">
+                                <button type="submit" class="btn btn-danger">
+                                    Excluir
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+</body>
+</html>

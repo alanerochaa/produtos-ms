@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso negado</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="page-container">
+    <div class="page-center">
+        <section class="card info-box">
+            <h1 class="page-title">Acesso negado</h1>
+            <p class="info-text">
+                Você não possui permissão para acessar esta funcionalidade.
+            </p>
+            <a th:href="@{/}" class="btn btn-primary">Voltar para o início</a>
+        </section>
+    </div>
+</div>
+</body>
+</html>

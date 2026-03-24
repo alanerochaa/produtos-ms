@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8bcc485-f56d-45be-9d48-995489623e82" name="Changes" comment="Estrutura completa do produtos-ms com camadas de produto (entity, dto, repository, service, controller) e configuração base.">
+    <list default="true" id="f8bcc485-f56d-45be-9d48-995489623e82" name="Changes" comment="Estrutura de templates Thymeleaf e base de migration para produtos-ms">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/ProdutosMsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/Produtos_MsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/configs/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/controller/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/controller/CommonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/controller/ProdutoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/controller/ProdutoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/dto/ProdutoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/dto/ProdutoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/entities/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/entities/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/repositories/ProdutoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/repositories/ProdutoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtosms/service/ProdutoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/fiap/produtos_ms/service/ProdutoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/403.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/detalhe-produto.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/detalhe-produto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/produtos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/produtos.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +79,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774391659675</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Estrutura de templates Thymeleaf e base de migration para produtos-ms">
+      <option name="closed" value="true" />
+      <created>1774392460057</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1774392460057</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +117,7 @@
     <MESSAGE value="Estrutura inicial do produtos-ms" />
     <MESSAGE value="ajuste do gitignore" />
     <MESSAGE value="Estrutura completa do produtos-ms com camadas de produto (entity, dto, repository, service, controller) e configuração base." />
-    <option name="LAST_COMMIT_MESSAGE" value="Estrutura completa do produtos-ms com camadas de produto (entity, dto, repository, service, controller) e configuração base." />
+    <MESSAGE value="Estrutura de templates Thymeleaf e base de migration para produtos-ms" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estrutura de templates Thymeleaf e base de migration para produtos-ms" />
   </component>
 </project>

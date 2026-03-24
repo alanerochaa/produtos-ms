@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="page-container">
+
+    <div th:replace="~{fragments :: navbar('home')}"></div>
+
+    <div class="page-center">
+        <section class="card info-box">
+            <h1 class="page-title">Bem-vinda ao produtos-ms</h1>
+            <p class="info-text">
+                Este microsserviço permite listar, cadastrar, editar e excluir produtos,
+                seguindo o padrão arquitetural utilizado em aula com Spring Boot, Thymeleaf e controle de acesso.
+            </p>
+            <a th:href="@{/produtos}" class="btn btn-primary">Acessar produtos</a>
+        </section>
+    </div>
+</div>
+</body>
+</html>

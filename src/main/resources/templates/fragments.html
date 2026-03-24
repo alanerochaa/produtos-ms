@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="navbar(activePage)">
+    <nav class="navbar">
+        <div class="nav-links">
+            <a th:href="@{/}"
+               class="nav-link"
+               th:classappend="${activePage == 'home'} ? ' active' : ''">
+                Início
+            </a>
+
+            <a th:href="@{/produtos}"
+               class="nav-link"
+               th:classappend="${activePage == 'produtos'} ? ' active' : ''">
+                Produtos
+            </a>
+        </div>
+
+        <div class="user-box">
+            <span class="user-name" th:text="${username} ?: 'Usuário'">Usuário</span>
+            <img class="avatar"
+                 th:if="${urlAvatar != null}"
+                 th:src="${urlAvatar}"
+                 alt="Avatar do usuário">
+            <a th:href="@{/logout}" class="btn btn-secondary">Sair</a>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
