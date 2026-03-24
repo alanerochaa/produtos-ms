@@ -16,11 +16,8 @@ public class Produto {
     private UUID id;
 
     private String nome;
-
     private String descricao;
-
     private BigDecimal preco;
-
     private String categoria;
 
     public Produto() {

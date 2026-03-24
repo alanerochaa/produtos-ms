@@ -24,7 +24,7 @@ public class SecurityConfig {
                         .requestMatchers("/produtos/excluir/**").hasRole("PRODUTO")
                         .requestMatchers("/produtos/detalhe/**").hasRole("PRODUTO")
                         .requestMatchers("/produtos").authenticated()
-                        .requestMatchers("/", "/403").authenticated()
+                        .requestMatchers("/", "/403", "/css/**", "/js/**", "/h2-console/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
@@ -33,6 +33,9 @@ public class SecurityConfig {
                         )
                 )
                 .exceptionHandling(ex -> ex.accessDeniedPage("/403"));
+
+        http.csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"));
+        http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();
     }

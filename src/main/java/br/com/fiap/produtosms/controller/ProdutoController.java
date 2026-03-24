@@ -25,6 +25,12 @@ public class ProdutoController extends CommonController {
         return "produtos";
     }
 
+    @GetMapping("/novo")
+    public String novo(Model model) {
+        model.addAttribute("produto", ProdutoDto.empty(UUID.randomUUID()));
+        return "detalhe-produto";
+    }
+
     @GetMapping("/detalhe/{id}")
     public String detalhe(@PathVariable UUID id, Model model) {
         ProdutoDto produtoDto;
@@ -36,12 +42,6 @@ public class ProdutoController extends CommonController {
         }
 
         model.addAttribute("produto", produtoDto);
-        return "detalhe-produto";
-    }
-
-    @GetMapping("/novo")
-    public String novo(Model model) {
-        model.addAttribute("produto", ProdutoDto.empty(UUID.randomUUID()));
         return "detalhe-produto";
     }
 
