@@ -1,73 +1,40 @@
-package br.com.fiap.produtosms.entities;
+package br.com.fiap.produtosms.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import br.com.fiap.produtosms.entities.Produto;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
-@Entity
-public class Produto {
+public record ProdutoDto(
+        UUID id,
+        String nome,
+        String descricao,
+        BigDecimal preco,
+        String categoria
+) {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
-    private String nome;
-    private String descricao;
-    private BigDecimal preco;
-    private String categoria;
-
-    public Produto() {
+    public static ProdutoDto from(Produto produto) {
+        return new ProdutoDto(
+                produto.getId(),
+                produto.getNome(),
+                produto.getDescricao(),
+                produto.getPreco(),
+                produto.getCategoria()
+        );
     }
 
-    public Produto(UUID id, String nome, String descricao, BigDecimal preco, String categoria) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.categoria = categoria;
+    public static List<ProdutoDto> from(List<Produto> produtos) {
+        return produtos.stream()
+                .map(ProdutoDto::from)
+                .toList();
     }
 
-    public UUID getId() {
-        return id;
+    public Produto toEntity() {
+        return new Produto(id, nome, descricao, preco, categoria);
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public static ProdutoDto empty(UUID id) {
+        return new ProdutoDto(id, "", "", null, "");
     }
 }
