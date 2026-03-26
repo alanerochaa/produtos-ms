@@ -1,3 +1,7 @@
 target/
 .idea/
 data/
+*.log
+
+src/main/resources/application.properties
+.env
