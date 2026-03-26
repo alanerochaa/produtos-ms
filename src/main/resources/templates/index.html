@@ -11,16 +11,18 @@
 
     <div th:replace="~{fragments :: navbar('home')}"></div>
 
-    <div class="page-center">
-        <section class="card info-box">
+    <section class="hero">
+        <div class="hero-card">
+            <div class="badge-soft">Microsserviço Spring Boot • Thymeleaf • OAuth2</div>
             <h1 class="page-title">Bem-vinda ao produtos-ms</h1>
             <p class="info-text">
                 Este microsserviço permite listar, cadastrar, editar e excluir produtos,
                 seguindo o padrão arquitetural utilizado em aula com Spring Boot, Thymeleaf e controle de acesso.
             </p>
             <a th:href="@{/produtos}" class="btn btn-primary">Acessar produtos</a>
-        </section>
-    </div>
+        </div>
+    </section>
+
 </div>
 </body>
 </html>

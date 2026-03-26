@@ -7,13 +7,16 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="page-container">
+<div class="page-container page-spacing">
 
     <div th:replace="~{fragments :: navbar('produtos')}"></div>
 
     <section class="card">
         <div class="section-header">
-            <h1 class="page-title">Produtos cadastrados</h1>
+            <div>
+                <h1 class="section-title">Produtos cadastrados</h1>
+                <p class="section-subtitle">Gerencie o catálogo de produtos do microsserviço.</p>
+            </div>
             <a th:href="@{/produtos/novo}" class="btn btn-primary">Novo produto</a>
         </div>
 
@@ -40,8 +43,7 @@
                     <td th:text="${produto.preco}">0.00</td>
                     <td>
                         <div class="actions">
-                            <a th:href="@{/produtos/detalhe/{id}(id=${produto.id})}"
-                               class="btn btn-secondary">
+                            <a th:href="@{/produtos/detalhe/{id}(id=${produto.id})}" class="btn btn-secondary">
                                 Detalhar
                             </a>
 

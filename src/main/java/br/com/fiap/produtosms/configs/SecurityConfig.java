@@ -9,6 +9,21 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+    private static final String[] PUBLIC_ROUTES = {
+            "/",
+            "/403",
+            "/css/**",
+            "/js/**",
+            "/h2-console/**"
+    };
+
+    private static final String[] PRODUTO_WRITE_ROUTES = {
+            "/produtos/novo",
+            "/produtos/detalhe/**",
+            "/produtos/salvar",
+            "/produtos/excluir/**"
+    };
+
     private final CustomOAuth2UserService customOAuth2UserService;
 
     public SecurityConfig(CustomOAuth2UserService customOAuth2UserService) {
@@ -19,12 +34,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/produtos/novo").hasRole("PRODUTO")
-                        .requestMatchers("/produtos/salvar").hasRole("PRODUTO")
-                        .requestMatchers("/produtos/excluir/**").hasRole("PRODUTO")
-                        .requestMatchers("/produtos/detalhe/**").hasRole("PRODUTO")
+                        .requestMatchers(PUBLIC_ROUTES).permitAll()
                         .requestMatchers("/produtos").authenticated()
-                        .requestMatchers("/", "/403", "/css/**", "/js/**", "/h2-console/**").authenticated()
+                        .requestMatchers(PRODUTO_WRITE_ROUTES).hasRole("PRODUTO")
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
@@ -32,10 +44,15 @@ public class SecurityConfig {
                                 userInfo.userService(customOAuth2UserService)
                         )
                 )
-                .exceptionHandling(ex -> ex.accessDeniedPage("/403"));
-
-        http.csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**"));
-        http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
+                .exceptionHandling(exception ->
+                        exception.accessDeniedPage("/403")
+                )
+                .csrf(csrf ->
+                        csrf.ignoringRequestMatchers("/h2-console/**")
+                )
+                .headers(headers ->
+                        headers.frameOptions(frame -> frame.disable())
+                );
 
         return http.build();
     }
