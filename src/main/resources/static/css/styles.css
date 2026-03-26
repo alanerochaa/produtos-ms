@@ -69,6 +69,21 @@ a {
     flex-wrap: wrap;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--purple-700);
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
 .nav-links {
     display: flex;
     gap: 10px;
@@ -393,6 +408,18 @@ a {
     justify-content: center;
 }
 
+.footer {
+    margin-top: 32px;
+    text-align: center;
+    color: var(--text-soft);
+    font-size: 14px;
+    padding-bottom: 12px;
+}
+
+.footer strong {
+    color: var(--text);
+}
+
 @media (max-width: 900px) {
     .page-container {
         padding: 18px 16px 28px;
@@ -419,5 +446,14 @@ a {
 
     .info-text {
         font-size: 17px;
+    }
+
+    .nav-left {
+        width: 100%;
+    }
+
+    .user-box {
+        width: 100%;
+        justify-content: flex-end;
     }
 }

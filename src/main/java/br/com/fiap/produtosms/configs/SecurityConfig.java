@@ -13,15 +13,7 @@ public class SecurityConfig {
             "/",
             "/403",
             "/css/**",
-            "/js/**",
-            "/h2-console/**"
-    };
-
-    private static final String[] PRODUTO_WRITE_ROUTES = {
-            "/produtos/novo",
-            "/produtos/detalhe/**",
-            "/produtos/salvar",
-            "/produtos/excluir/**"
+            "/js/**"
     };
 
     private final CustomOAuth2UserService customOAuth2UserService;
@@ -35,9 +27,8 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(PUBLIC_ROUTES).permitAll()
-                        .requestMatchers("/produtos").authenticated()
-                        .requestMatchers(PRODUTO_WRITE_ROUTES).hasRole("PRODUTO")
-                        .anyRequest().authenticated()
+                        .requestMatchers("/produtos", "/produtos/**").permitAll()
+                        .anyRequest().permitAll()
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .userInfoEndpoint(userInfo ->
@@ -47,12 +38,7 @@ public class SecurityConfig {
                 .exceptionHandling(exception ->
                         exception.accessDeniedPage("/403")
                 )
-                .csrf(csrf ->
-                        csrf.ignoringRequestMatchers("/h2-console/**")
-                )
-                .headers(headers ->
-                        headers.frameOptions(frame -> frame.disable())
-                );
+                .csrf(csrf -> csrf.disable());
 
         return http.build();
     }

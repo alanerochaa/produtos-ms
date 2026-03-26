@@ -9,7 +9,12 @@ public abstract class CommonController {
 
     @ModelAttribute
     public void preProcessamento(Model model, OAuth2AuthenticationToken authentication) {
-        model.addAttribute("username", GitHubUserUtils.getUsername(authentication));
-        model.addAttribute("urlAvatar", GitHubUserUtils.getAvatar(authentication));
+        if (authentication != null) {
+            model.addAttribute("username", GitHubUserUtils.getUsername(authentication));
+            model.addAttribute("urlAvatar", GitHubUserUtils.getAvatar(authentication));
+        } else {
+            model.addAttribute("username", "Usuário");
+            model.addAttribute("urlAvatar", null);
+        }
     }
 }

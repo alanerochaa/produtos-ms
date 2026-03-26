@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Controller
@@ -28,21 +27,23 @@ public class ProdutoController extends CommonController {
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("produto", ProdutoDto.empty(UUID.randomUUID()));
-        return "detalhe-produto";
+        model.addAttribute("modoEdicao", false);
+        return "form-produto";
     }
 
     @GetMapping("/detalhe/{id}")
     public String detalhe(@PathVariable UUID id, Model model) {
-        ProdutoDto produtoDto;
-
-        try {
-            produtoDto = ProdutoDto.from(produtoService.findById(id));
-        } catch (NoSuchElementException e) {
-            produtoDto = ProdutoDto.empty(id);
-        }
-
+        ProdutoDto produtoDto = ProdutoDto.from(produtoService.findById(id));
         model.addAttribute("produto", produtoDto);
         return "detalhe-produto";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable UUID id, Model model) {
+        ProdutoDto produtoDto = ProdutoDto.from(produtoService.findById(id));
+        model.addAttribute("produto", produtoDto);
+        model.addAttribute("modoEdicao", true);
+        return "form-produto";
     }
 
     @PostMapping("/salvar")

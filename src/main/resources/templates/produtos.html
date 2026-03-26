@@ -47,6 +47,10 @@
                                 Detalhar
                             </a>
 
+                            <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" class="btn btn-secondary">
+                                Editar
+                            </a>
+
                             <form class="inline-form"
                                   th:action="@{/produtos/excluir/{id}(id=${produto.id})}"
                                   method="post"
@@ -62,6 +66,10 @@
             </table>
         </div>
     </section>
+
+    <footer class="footer">
+        <p>Desenvolvido por <strong>Alane Rocha</strong> e <strong>Maria Eduarda</strong></p>
+    </footer>
 </div>
 </body>
 </html>

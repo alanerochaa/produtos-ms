@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início</title>
+    <title>Produtos - AM Tech</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -13,16 +13,22 @@
 
     <section class="hero">
         <div class="hero-card">
-            <div class="badge-soft">Microsserviço Spring Boot • Thymeleaf • OAuth2</div>
-            <h1 class="page-title">Bem-vinda ao produtos-ms</h1>
+            <div class="badge-soft">Microsserviço Spring Boot</div>
+
+            <h1 class="page-title">Produtos - AM Tech</h1>
+
             <p class="info-text">
-                Este microsserviço permite listar, cadastrar, editar e excluir produtos,
-                seguindo o padrão arquitetural utilizado em aula com Spring Boot, Thymeleaf e controle de acesso.
+                Sistema para gestão de produtos, permitindo listar, cadastrar,
+                detalhar, editar e excluir registros, seguindo boas práticas com Spring Boot e Thymeleaf.
             </p>
+
             <a th:href="@{/produtos}" class="btn btn-primary">Acessar produtos</a>
         </div>
     </section>
 
+    <footer class="footer">
+        <p>Desenvolvido por <strong>Alane Rocha</strong> e <strong>Maria Eduarda</strong></p>
+    </footer>
 </div>
 </body>
 </html>

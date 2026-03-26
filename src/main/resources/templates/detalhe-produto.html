@@ -14,44 +14,48 @@
     <section class="card">
         <div class="section-header">
             <div>
-                <h1 class="section-title">Cadastro de produto</h1>
-                <p class="section-subtitle">Preencha os dados abaixo para cadastrar ou editar um produto.</p>
+                <h1 class="section-title">Detalhe do produto</h1>
+                <p class="section-subtitle">Visualização dos dados do produto selecionado.</p>
             </div>
         </div>
 
-        <form th:action="@{/produtos/salvar}" th:object="${produto}" method="post" class="form-grid">
+        <div class="form-grid">
 
             <div class="form-row">
-                <label for="id" class="form-label">Código</label>
-                <input id="id" type="text" th:field="*{id}" readonly class="form-input">
+                <label class="form-label">Código</label>
+                <input type="text" th:value="${produto.id}" readonly class="form-input">
             </div>
 
             <div class="form-row">
-                <label for="nome" class="form-label">Nome</label>
-                <input id="nome" type="text" th:field="*{nome}" class="form-input" placeholder="Digite o nome do produto">
+                <label class="form-label">Nome</label>
+                <input type="text" th:value="${produto.nome}" readonly class="form-input">
             </div>
 
             <div class="form-row">
-                <label for="descricao" class="form-label">Descrição</label>
-                <input id="descricao" type="text" th:field="*{descricao}" class="form-input" placeholder="Digite a descrição do produto">
+                <label class="form-label">Descrição</label>
+                <input type="text" th:value="${produto.descricao}" readonly class="form-input">
             </div>
 
             <div class="form-row">
-                <label for="preco" class="form-label">Preço</label>
-                <input id="preco" type="number" step="0.01" th:field="*{preco}" class="form-input" placeholder="Digite o preço">
+                <label class="form-label">Preço</label>
+                <input type="text" th:value="${produto.preco}" readonly class="form-input">
             </div>
 
             <div class="form-row">
-                <label for="categoria" class="form-label">Categoria</label>
-                <input id="categoria" type="text" th:field="*{categoria}" class="form-input" placeholder="Digite a categoria">
+                <label class="form-label">Categoria</label>
+                <input type="text" th:value="${produto.categoria}" readonly class="form-input">
             </div>
 
             <div class="form-actions">
                 <a th:href="@{/produtos}" class="btn btn-secondary">Voltar</a>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" class="btn btn-primary">Editar</a>
             </div>
-        </form>
+        </div>
     </section>
+
+    <footer class="footer">
+        <p>Desenvolvido por <strong>Alane Rocha</strong> e <strong>Maria Eduarda</strong></p>
+    </footer>
 </div>
 </body>
 </html>
