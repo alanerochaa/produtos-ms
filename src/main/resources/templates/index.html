@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - AM Tech</title>
+    <title>Login</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -11,20 +11,19 @@
 
     <div th:replace="~{fragments :: navbar('home')}"></div>
 
-    <section class="hero">
-        <div class="hero-card">
-            <div class="badge-soft">Microsserviço Spring Boot</div>
-
-            <h1 class="page-title">Produtos - AM Tech</h1>
-
+    <div class="page-center">
+        <section class="card info-box">
+            <div class="badge-soft">Autenticação</div>
+            <h1 class="page-title">Entrar no sistema</h1>
             <p class="info-text">
-                Sistema para gestão de produtos, permitindo listar, cadastrar,
-                detalhar, editar e excluir registros, seguindo boas práticas com Spring Boot e Thymeleaf.
+                Para acessar as funcionalidades protegidas, faça login com sua conta GitHub.
             </p>
 
-            <a th:href="@{/produtos}" class="btn btn-primary">Acessar produtos</a>
-        </div>
-    </section>
+            <a th:href="@{/oauth2/authorization/github}" class="btn btn-primary">
+                Entrar com GitHub
+            </a>
+        </section>
+    </div>
 
     <footer class="footer">
         <p>Desenvolvido por <strong>Alane Rocha</strong> e <strong>Maria Eduarda</strong></p>

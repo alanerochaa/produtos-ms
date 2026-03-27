@@ -12,9 +12,11 @@ public abstract class CommonController {
         if (authentication != null) {
             model.addAttribute("username", GitHubUserUtils.getUsername(authentication));
             model.addAttribute("urlAvatar", GitHubUserUtils.getAvatar(authentication));
+            model.addAttribute("autenticado", true);
         } else {
-            model.addAttribute("username", "Usuário");
+            model.addAttribute("username", "Visitante");
             model.addAttribute("urlAvatar", null);
+            model.addAttribute("autenticado", false);
         }
     }
 }

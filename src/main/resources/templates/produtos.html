@@ -40,7 +40,7 @@
                     <td th:text="${produto.id}" class="code-text">id</td>
                     <td th:text="${produto.nome}">Nome</td>
                     <td th:text="${produto.categoria}">Categoria</td>
-                    <td th:text="${produto.preco}">0.00</td>
+                    <td th:text="${#numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}">0,00</td>
                     <td>
                         <div class="actions">
                             <a th:href="@{/produtos/detalhe/{id}(id=${produto.id})}" class="btn btn-secondary">

@@ -34,22 +34,38 @@
 
             <div class="form-row">
                 <label for="nome" class="form-label">Nome</label>
-                <input id="nome" type="text" th:field="*{nome}" class="form-input" placeholder="Digite o nome do produto" required>
+                <div>
+                    <input id="nome" type="text" th:field="*{nome}" class="form-input"
+                           placeholder="Digite o nome do produto">
+                    <small class="field-error" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></small>
+                </div>
             </div>
 
             <div class="form-row">
                 <label for="descricao" class="form-label">Descrição</label>
-                <input id="descricao" type="text" th:field="*{descricao}" class="form-input" placeholder="Digite a descrição do produto" required>
+                <div>
+                    <textarea id="descricao" th:field="*{descricao}" class="form-input form-textarea"
+                              placeholder="Digite a descrição do produto"></textarea>
+                    <small class="field-error" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></small>
+                </div>
             </div>
 
             <div class="form-row">
                 <label for="preco" class="form-label">Preço</label>
-                <input id="preco" type="number" step="0.01" th:field="*{preco}" class="form-input" placeholder="Digite o preço" required>
+                <div>
+                    <input id="preco" type="number" step="0.01" min="0.01"
+                           th:field="*{preco}" class="form-input" placeholder="Digite o preço">
+                    <small class="field-error" th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></small>
+                </div>
             </div>
 
             <div class="form-row">
                 <label for="categoria" class="form-label">Categoria</label>
-                <input id="categoria" type="text" th:field="*{categoria}" class="form-input" placeholder="Digite a categoria" required>
+                <div>
+                    <input id="categoria" type="text" th:field="*{categoria}" class="form-input"
+                           placeholder="Digite a categoria do produto">
+                    <small class="field-error" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></small>
+                </div>
             </div>
 
             <div class="form-actions">

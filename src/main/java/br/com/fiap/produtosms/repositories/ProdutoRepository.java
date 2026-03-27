@@ -1,6 +1,6 @@
 package br.com.fiap.produtosms.repositories;
 
-import br.com.fiap.produtosms.entities.Produto;
+import br.com.fiap.produtosms.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

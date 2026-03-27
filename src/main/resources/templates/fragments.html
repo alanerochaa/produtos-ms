@@ -23,8 +23,8 @@
             </div>
         </div>
 
-        <div class="user-box">
-            <span class="user-name" th:text="${username} ?: 'Usuário'">Usuário</span>
+        <div class="user-box" th:if="${autenticado}">
+            <span class="user-name" th:text="${username}">Usuário</span>
 
             <img class="avatar"
                  th:if="${urlAvatar != null}"
@@ -32,6 +32,10 @@
                  alt="Avatar do usuário">
 
             <a th:href="@{/logout}" class="btn btn-secondary">Sair</a>
+        </div>
+
+        <div class="user-box" th:unless="${autenticado}">
+            <a th:href="@{/login}" class="btn btn-primary">Entrar</a>
         </div>
 
     </nav>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="page-container">
+
+    <div th:replace="~{fragments :: navbar('home')}"></div>
+
+    <div class="page-center">
+        <section class="card info-box">
+            <div class="badge-soft">Autenticação</div>
+            <h1 class="page-title">Entrar no sistema</h1>
+            <p class="info-text">
+                Você pode entrar com usuário e senha local ou autenticar com sua conta GitHub.
+            </p>
+
+            <div th:if="${param.error}" class="empty-message" style="margin-bottom: 20px;">
+                Usuário ou senha inválidos.
+            </div>
+
+            <form th:action="@{/login}" method="post" class="form-grid" style="margin-bottom: 24px;">
+                <div class="form-row">
+                    <label for="username" class="form-label">Usuário</label>
+                    <input id="username" name="username" type="text" class="form-input" placeholder="Digite o usuário" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="password" class="form-label">Senha</label>
+                    <input id="password" name="password" type="password" class="form-input" placeholder="Digite a senha" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Entrar com login</button>
+                </div>
+            </form>
+
+            <div class="form-actions" style="justify-content: center;">
+                <a th:href="@{/oauth2/authorization/github}" class="btn btn-secondary">
+                    Entrar com GitHub
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Desenvolvido por <strong>Alane Rocha</strong> e <strong>Maria Eduarda</strong></p>
+    </footer>
+</div>
+</body>
+</html>

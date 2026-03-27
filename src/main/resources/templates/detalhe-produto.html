@@ -15,7 +15,7 @@
         <div class="section-header">
             <div>
                 <h1 class="section-title">Detalhe do produto</h1>
-                <p class="section-subtitle">Visualização dos dados do produto selecionado.</p>
+                <p class="section-subtitle">Visualização completa dos dados do produto selecionado.</p>
             </div>
         </div>
 
@@ -33,12 +33,16 @@
 
             <div class="form-row">
                 <label class="form-label">Descrição</label>
-                <input type="text" th:value="${produto.descricao}" readonly class="form-input">
+                <textarea readonly class="form-input form-textarea"
+                          th:text="${produto.descricao}"></textarea>
             </div>
 
             <div class="form-row">
                 <label class="form-label">Preço</label>
-                <input type="text" th:value="${produto.preco}" readonly class="form-input">
+                <input type="text"
+                       th:value="${#numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}"
+                       readonly
+                       class="form-input">
             </div>
 
             <div class="form-row">

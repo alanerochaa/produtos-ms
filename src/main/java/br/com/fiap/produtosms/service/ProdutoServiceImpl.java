@@ -1,9 +1,9 @@
 package br.com.fiap.produtosms.service;
 
-import br.com.fiap.produtosms.entities.Produto;
+import br.com.fiap.produtosms.model.Produto;
 import br.com.fiap.produtosms.repositories.ProdutoRepository;
+import br.com.fiap.produtosms.service.ProdutoService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -18,23 +18,22 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
-    public Produto findById(UUID id) {
-        return produtoRepository.findById(id).orElseThrow();
-    }
-
-    @Override
     public List<Produto> findAll() {
         return produtoRepository.findAll();
     }
 
     @Override
-    @Transactional
-    public void saveOrUpdate(Produto produto) {
-        produtoRepository.save(produto);
+    public Produto findById(UUID id) {
+        return produtoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado."));
     }
 
     @Override
-    @Transactional
+    public Produto saveOrUpdate(Produto produto) {
+        return produtoRepository.save(produto);
+    }
+
+    @Override
     public void deleteById(UUID id) {
         produtoRepository.deleteById(id);
     }
