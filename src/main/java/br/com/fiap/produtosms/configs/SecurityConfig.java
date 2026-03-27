@@ -54,7 +54,7 @@ public class SecurityConfig {
                         exception.accessDeniedPage("/403")
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/login?logout=true")
                         .permitAll()
                 )
                 .csrf(csrf -> csrf.disable());

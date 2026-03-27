@@ -2,7 +2,6 @@ package br.com.fiap.produtosms.service;
 
 import br.com.fiap.produtosms.model.Produto;
 import br.com.fiap.produtosms.repositories.ProdutoRepository;
-import br.com.fiap.produtosms.service.ProdutoService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
