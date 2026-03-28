@@ -103,11 +103,7 @@ produtos-ms
 
 🔹 2. Subir banco PostgreSQL (Docker)
 ```
-docker run -d --name postgres-produtos \
--e POSTGRES_DB=produtosdb \
--e POSTGRES_USER=postgres \
--e POSTGRES_PASSWORD=postgres \
--p 5432:5432 postgres
+docker compose up -d
 ```
 
 🔹 3. Configuração do application.properties
