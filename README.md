@@ -134,6 +134,17 @@ mvn spring-boot:run
 http://localhost:8080
 ```
 
+## 🔐 Acesso para avaliação
+
+A aplicação pode ser acessada com o usuário de teste abaixo:
+
+| Tipo de acesso | Usuário | Senha  |
+|---|---------|--------|
+| Login local | cliente | 123456 |
+
+> Caso prefira, também é possível autenticar via GitHub, conforme configuração OAuth2 do projeto.
+
+
 ## 🔐 Segurança
 * OAuth2 com GitHub
 * Controle de rotas autenticadas
@@ -174,16 +185,18 @@ src/main/resources/db/migration
 ## 🔐 Login
 ![img_4.png](docs/evidencias/login.png)
 
-
-## 📋 Listagem
-
 ## ➕ Cadastro
 ![img_3.png](docs/evidencias/cadastro_produto.png)
 ![img_5.png](docs/evidencias/produtos_cadastrados.png)
 ## 🔍 Detalhe
 ![img_6.png](docs/evidencias/descricao_produtos.png)
 
+## bAnco
+![img.png](docs/evidencias/docker-container.png)
+![img_1.png](docs/evidencias/listagem-aplicacao.png)
 
+![img_2.png](docs/evidencias/select-produtos.png)
+![img_3.png](docs/evidencias/select-usuarios.png)
 
 ## 👩‍💻 Integrantes
 
