@@ -1,16 +1,14 @@
 CREATE TABLE produto (
-    id UUID NOT NULL,
-    nome VARCHAR(255),
-    descricao VARCHAR(255),
-    preco DECIMAL(10,2),
-    categoria VARCHAR(255),
-    PRIMARY KEY (id)
+    id UUID PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    categoria VARCHAR(100),
+    preco DECIMAL(10,2)
 );
 
 CREATE TABLE usuario (
-    login VARCHAR(255) NOT NULL,
+    login VARCHAR(100) PRIMARY KEY,
     nome VARCHAR(255),
     avatar_url VARCHAR(500),
-    role VARCHAR(100),
-    PRIMARY KEY (login)
+    role VARCHAR(50)
 );

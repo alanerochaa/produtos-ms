@@ -1,17 +1,16 @@
 package br.com.fiap.produtosms.service;
 
-import br.com.fiap.produtosms.model.Produto;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface ProdutoService {
 
-    List<Produto> findAll();
+    br.com.fiap.produtosms.model.Produto findById(UUID id);
 
-    Produto findById(UUID id);
+    List<br.com.fiap.produtosms.model.Produto> findAll();
 
-    Produto saveOrUpdate(Produto produto);
+    br.com.fiap.produtosms.model.Produto saveOrUpdate(br.com.fiap.produtosms.model.Produto produto);
 
     void deleteById(UUID id);
 }

@@ -37,14 +37,24 @@
                 </thead>
                 <tbody>
                 <tr th:each="produto : ${produtos}">
-                    <td th:text="${produto.id}" class="code-text">id</td>
+
+                    <td class="code-text"
+                        th:title="${produto.id}"
+                        th:text="${#strings.substring(produto.id.toString(), 0, 8) + '...'}">
+                        id
+                    </td>
+
                     <td th:text="${produto.nome}">Nome</td>
                     <td th:text="${produto.categoria}">Categoria</td>
-                    <td th:text="${#numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}">0,00</td>
+
+                    <td th:text="${#numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}">
+                        0,00
+                    </td>
+
                     <td>
                         <div class="actions">
                             <a th:href="@{/produtos/detalhe/{id}(id=${produto.id})}" class="btn btn-secondary">
-                                Detalhar
+                                Detalhe do Produto
                             </a>
 
                             <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" class="btn btn-secondary">
@@ -61,6 +71,7 @@
                             </form>
                         </div>
                     </td>
+
                 </tr>
                 </tbody>
             </table>

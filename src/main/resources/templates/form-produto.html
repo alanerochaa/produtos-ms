@@ -16,72 +16,51 @@
             <div>
                 <h1 class="section-title"
                     th:text="${modoEdicao} ? 'Editar produto' : 'Cadastro de produto'">
-                    Cadastro de produto
+                    Título
                 </h1>
-                <p class="section-subtitle"
-                   th:text="${modoEdicao} ? 'Atualize os dados do produto selecionado.' : 'Preencha os dados abaixo para cadastrar um novo produto.'">
-                    Preencha os dados abaixo para cadastrar um produto.
-                </p>
             </div>
+        </div>
+
+        <div th:if="${erro}" class="alert alert-error" th:text="${erro}">
+            Mensagem de erro
         </div>
 
         <form th:action="@{/produtos/salvar}" th:object="${produto}" method="post" class="form-grid">
 
+            <input type="hidden" name="modoEdicao" th:value="${modoEdicao}">
+
             <div class="form-row">
-                <label for="id" class="form-label">Código</label>
-                <input id="id" type="text" th:field="*{id}" readonly class="form-input">
+                <label class="form-label">Identificador</label>
+                <input type="text" th:field="*{id}" readonly class="form-input">
             </div>
 
             <div class="form-row">
-                <label for="nome" class="form-label">Nome</label>
-                <div>
-                    <input id="nome" type="text" th:field="*{nome}" class="form-input"
-                           placeholder="Digite o nome do produto">
-                    <small class="field-error" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></small>
-                </div>
+                <label class="form-label">Nome</label>
+                <input type="text" th:field="*{nome}" class="form-input">
             </div>
 
             <div class="form-row">
-                <label for="descricao" class="form-label">Descrição</label>
-                <div>
-                    <textarea id="descricao" th:field="*{descricao}" class="form-input form-textarea"
-                              placeholder="Digite a descrição do produto"></textarea>
-                    <small class="field-error" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></small>
-                </div>
+                <label class="form-label">Descrição</label>
+                <textarea th:field="*{descricao}" class="form-input form-textarea"></textarea>
             </div>
 
             <div class="form-row">
-                <label for="preco" class="form-label">Preço</label>
-                <div>
-                    <input id="preco" type="number" step="0.01" min="0.01"
-                           th:field="*{preco}" class="form-input" placeholder="Digite o preço">
-                    <small class="field-error" th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></small>
-                </div>
+                <label class="form-label">Preço</label>
+                <input type="number" step="0.01" th:field="*{preco}" class="form-input">
             </div>
 
             <div class="form-row">
-                <label for="categoria" class="form-label">Categoria</label>
-                <div>
-                    <input id="categoria" type="text" th:field="*{categoria}" class="form-input"
-                           placeholder="Digite a categoria do produto">
-                    <small class="field-error" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></small>
-                </div>
+                <label class="form-label">Categoria</label>
+                <input type="text" th:field="*{categoria}" class="form-input">
             </div>
 
             <div class="form-actions">
                 <a th:href="@{/produtos}" class="btn btn-secondary">Voltar</a>
-                <button type="submit"
-                        class="btn btn-primary"
-                        th:text="${modoEdicao} ? 'Atualizar' : 'Salvar'">
-                    Salvar
-                </button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
         </form>
     </section>
 
-    <footer class="footer">
-        <p>Desenvolvido por <strong>Alane Rocha</strong> e <strong>Maria Eduarda</strong></p>
-    </footer>
 </div>
 </body>
 </html>

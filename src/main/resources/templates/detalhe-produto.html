@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhe do Produto</title>
+    <title>Descrição do Produto</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
@@ -11,50 +11,62 @@
 
     <div th:replace="~{fragments :: navbar('produtos')}"></div>
 
-    <section class="card">
-        <div class="section-header">
-            <div>
-                <h1 class="section-title">Detalhe do produto</h1>
-                <p class="section-subtitle">Visualização completa dos dados do produto selecionado.</p>
+    <section class="card product-detail-card">
+
+        <div class="product-detail-header">
+            <span class="badge-soft">Descrição do item</span>
+
+            <h1 class="product-detail-title" th:text="${produto.nome}">
+                Nome do produto
+            </h1>
+
+            <p class="product-detail-subtitle">
+                Visualização descritiva do produto selecionado.
+            </p>
+        </div>
+
+        <div class="product-description-block">
+            <h2 class="product-section-title">Descrição</h2>
+
+            <div class="product-description-content"
+                 th:text="${produto.descricao != null and !#strings.isEmpty(produto.descricao) ? produto.descricao : 'Nenhuma descrição cadastrada para este item.'}">
+                Descrição do produto
             </div>
         </div>
 
-        <div class="form-grid">
+        <div class="product-meta-grid">
 
-            <div class="form-row">
-                <label class="form-label">Código</label>
-                <input type="text" th:value="${produto.id}" readonly class="form-input">
+            <div class="product-meta-card">
+                <span class="product-meta-label">Categoria</span>
+                <span class="product-meta-value" th:text="${produto.categoria}">
+                    Categoria
+                </span>
             </div>
 
-            <div class="form-row">
-                <label class="form-label">Nome</label>
-                <input type="text" th:value="${produto.nome}" readonly class="form-input">
+            <div class="product-meta-card">
+                <span class="product-meta-label">Preço</span>
+                <span class="product-meta-value"
+                      th:text="${#numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}">
+                    0,00
+                </span>
             </div>
 
-            <div class="form-row">
-                <label class="form-label">Descrição</label>
-                <textarea readonly class="form-input form-textarea"
-                          th:text="${produto.descricao}"></textarea>
+            <div class="product-meta-card">
+                <span class="product-meta-label">Identificador</span>
+                <span class="product-meta-value code-text"
+                      th:title="${produto.id}"
+                      th:text="${produto.id}">
+                    ID do produto
+                </span>
             </div>
 
-            <div class="form-row">
-                <label class="form-label">Preço</label>
-                <input type="text"
-                       th:value="${#numbers.formatDecimal(produto.preco, 1, 'POINT', 2, 'COMMA')}"
-                       readonly
-                       class="form-input">
-            </div>
-
-            <div class="form-row">
-                <label class="form-label">Categoria</label>
-                <input type="text" th:value="${produto.categoria}" readonly class="form-input">
-            </div>
-
-            <div class="form-actions">
-                <a th:href="@{/produtos}" class="btn btn-secondary">Voltar</a>
-                <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" class="btn btn-primary">Editar</a>
-            </div>
         </div>
+
+        <div class="form-actions">
+            <a th:href="@{/produtos}" class="btn btn-secondary">Voltar</a>
+            <a th:href="@{/produtos/editar/{id}(id=${produto.id})}" class="btn btn-primary">Editar</a>
+        </div>
+
     </section>
 
     <footer class="footer">
